@@ -1,0 +1,35 @@
+<%- include("./partials/header", {loggedIn : false}) %>
+
+<div class="container">
+	<div class="row" style="display: flex; flex-direction: column; align-items: center; margin-top: 80px;">
+		<div class="col-md-4 pr-4 pl-4 pb-5 pt-2" style="border: 1px solid rgba(0, 0, 0, 0.1); background-color: #e4e4e4;">
+			<h1 class="display-4 mb-4 text-center">Register</h1>
+			<% if(error){ %>
+			<div class="alert alert-danger mt-3 text-center" role="alert">
+				<%= error %>
+			</div>
+			<% } %>
+			<form action="/register" method="POST" style="width: 100%;">
+				<div class="form-group">
+					<input type="text" name="register[name]" placeholder="Full Name" class="form-control" required />
+				</div>
+				<div class="form-group">
+					<input type="email" name="register[email]" placeholder="Email Adress" class="form-control" required />
+				</div>
+				<div class="form-group">
+					<input type="password" name="register[password]" placeholder="Enter Password" class="form-control" required />
+				</div>
+				<div class="form-group">
+					<input type="password" name="register[confirmPassword]" placeholder="Confirm Password" class="form-control" required />
+				</div>
+
+				<button type="submit" class="btn btn-block btn-success">
+					Register
+				</button>
+				<a href="/login" class="btn btn-block btn-info">Login</a>
+			</form>
+		</div>
+	</div>
+</div>
+
+<%- include("./partials/footer") %>

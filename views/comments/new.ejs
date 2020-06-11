@@ -1,0 +1,29 @@
+<%- include("../partials/header", {loggedIn : true}) %>
+
+<div class="container">
+	<header class="jumbotron" style="margin-top: 10px;">
+		<div class="container" style="text-align: center;">
+			<h1>Welcome To YelpCamp!</h1>
+			<p>Comment On Campground</p>
+		</div>
+	</header>
+
+	<div style="padding: 6vh; border: 1px solid rgba(0, 0, 0, 0.2); width: 35%; position: absolute; background-color: #e9ecef; left: 33%;">
+		<form action="/campgrounds/<%= campgroundId %>/comments" method="POST" style="width: 100%;">
+			<div class="form-group">
+				<input type="text" placeholder="Author" name="comment[author]" class="form-control" required />
+			</div>
+
+			<div class="form-group">
+				<textarea placeholder="Content" class="form-control" rows="4" name="comment[content]" required></textarea>
+			</div>
+
+			<button type="submit" class="btn btn-block btn-success">
+				Add Comment
+			</button>
+			<a href="/campgrounds/<%= campgroundId %>" class="btn btn-block btn-dark">Go Back</a>
+		</form>
+	</div>
+</div>
+
+<%- include("../partials/footer") %>
